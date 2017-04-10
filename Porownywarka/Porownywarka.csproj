@@ -65,7 +65,6 @@
     <Compile Include="Controler\Login_Controler.cs" />
     <Compile Include="Controler\MainWindow_Controler.cs" />
     <Compile Include="Controler\Menu_Controler.cs" />
-    <Compile Include="Controler\Window1_Controler.cs" />
     <Compile Include="GraphicCardDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,9 +94,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="View\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="View\Creditsxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,10 +122,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

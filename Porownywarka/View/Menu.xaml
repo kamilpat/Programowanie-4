@@ -10,7 +10,6 @@
         <Button x:Name="button_Credits" Content="Credits" HorizontalAlignment="Left" Margin="110,139,0,0" VerticalAlignment="Top" Width="75" Click="button_Credits_Click"/>
         <Button x:Name="button_Close" Content="Exit" HorizontalAlignment="Left" Margin="110,184,0,0" VerticalAlignment="Top" Width="75" Click="button_Close_Click"/>
         <Button x:Name="button_Login" Content="Login" HorizontalAlignment="Left" Margin="110,94,0,0" VerticalAlignment="Top" Width="75" Click="button_Login_Click"/>
-        <Button x:Name="button_SignIn" Content="Sign in" HorizontalAlignment="Left" Margin="110,48,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

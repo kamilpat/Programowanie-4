@@ -64,14 +64,6 @@ namespace Porownywarka {
         #line default
         #line hidden
         
-        
-        #line 13 "..\..\..\View\Menu.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button button_SignIn;
-        
-        #line default
-        #line hidden
-        
         private bool _contentLoaded;
         
         /// <summary>
@@ -128,9 +120,6 @@ namespace Porownywarka {
             
             #line default
             #line hidden
-            return;
-            case 4:
-            this.button_SignIn = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
