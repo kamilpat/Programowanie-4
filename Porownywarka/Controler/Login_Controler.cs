@@ -55,7 +55,12 @@ namespace Porownywarka
 
 
 
-        
+        private void return_button_Click(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            this.Close();
+            menu.Show();
+        }
 
 
         private void Login_btn_Click(object sender, RoutedEventArgs e)

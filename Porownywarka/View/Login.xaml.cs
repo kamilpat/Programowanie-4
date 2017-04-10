@@ -21,10 +21,7 @@ namespace Porownywarka
     /// 
     public partial class Login : Window
     {
-        private void return_button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }
 
