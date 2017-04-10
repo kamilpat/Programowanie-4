@@ -1,0 +1,25 @@
+﻿<Window x:Class="Porownywarka.ItemView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Porownywarka"
+        mc:Ignorable="d"
+        Title="ItemView" Height="1000" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="115*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button_Follow" Content="Follow" HorizontalAlignment="Left" Margin="139,10,0,0" VerticalAlignment="Top" Width="45" Height="29" Grid.Column="1"/>
+        <Label x:Name="label" Content="Czas Do Konca Aukcji" HorizontalAlignment="Left" Margin="19,859,0,0" VerticalAlignment="Top" Width="279"/>
+        <Button x:Name="close_button" Content="Close" HorizontalAlignment="Left" Margin="30.77,938,0,0" Width="75" Height="22" VerticalAlignment="Top" Click="close_button_Click" Grid.Column="1"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="210" Margin="121,106,0,0" VerticalAlignment="Top" Width="269" Source="/Porownywarka;component/Images/Credits.png" Grid.ColumnSpan="2"/>
+        <Label x:Name="Title" Content="Title:" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="-11.567,0.103" Grid.ColumnSpan="2" Width="472"/>
+        <Label x:Name="CategoryID_lab" Content="Category ID: " HorizontalAlignment="Left" Margin="19,322,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="463"/>
+        <Label x:Name="label2" Content="Item ID:  " HorizontalAlignment="Left" Margin="19,353,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="463"/>
+        <Label x:Name="label3" Content="Additional Info: " HorizontalAlignment="Left" Margin="19,384,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="463"/>
+        <Label x:Name="label4" Content="Price Info: " HorizontalAlignment="Left" Margin="19,410,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="463"/>
+
+    </Grid>
+</Window>
