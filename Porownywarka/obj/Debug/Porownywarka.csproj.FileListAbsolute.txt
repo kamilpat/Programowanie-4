@@ -1,3 +1,4 @@
+E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka_MarkupCompile.cache
 E:\Programownie\Projekt\Porownywarka\Porownywarka\bin\Debug\Porownywarka.exe.config
 E:\Programownie\Projekt\Porownywarka\Porownywarka\bin\Debug\Porownywarka.exe
 E:\Programownie\Projekt\Porownywarka\Porownywarka\bin\Debug\Porownywarka.pdb
@@ -7,7 +8,6 @@ E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\Login.g.cs
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\MainWindow.g.cs
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\Menu.g.cs
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\App.g.cs
-E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka_MarkupCompile.cache
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka_MarkupCompile.lref
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\Creditsxaml.baml
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\ItemView.baml
@@ -19,3 +19,4 @@ E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.Propert
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.csproj.GenerateResource.Cache
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.exe
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.pdb
+E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.csprojResolveAssemblyReference.cache

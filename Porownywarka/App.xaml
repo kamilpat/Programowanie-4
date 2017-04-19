@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Porownywarka"
            StartupUri="View/Menu.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

@@ -1,6 +1,8 @@
-﻿using Porownywarka.pl.allegro.webapi;
+﻿
+using Porownywarka.pl.allegro.webapi;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using System.Text;
@@ -13,29 +15,36 @@ namespace Porownywarka
 {
     public partial class ItemView : Window
     {
+        serviceService service;
+
         Label []  parametry_lab;
-        public ItemView(ItemsListType item)
+        private string sessionHandle;
+        ItemsListType Product;
+ 
+        public ItemView(ItemsListType item,string sessionhandl)
         {
-       
+            service = new serviceService();
+            Product = item;
+            sessionHandle = sessionhandl;
             InitializeComponent();
-            if (item.additionalInfo!=null)
-    label3.Content+=item.additionalInfo.ToString();
-            if (item.itemId!=null)
-            label2.Content+=item.itemId.ToString();
-            if (item.itemTitle!=null)
-                Title.Content += item.itemTitle;
-            if (item.priceInfo!=null)
-                label4.Content+=item.priceInfo[0].priceValue.ToString();
-            if (item.timeToEnd!=null)
-            label.Content+=item.timeToEnd;
-            if (item.categoryId!=null)
-                CategoryID_lab.Content += item.categoryId.ToString();
+            if (Product.additionalInfo != null)             
+    label3.Content+= Product.additionalInfo.ToString();
+            if (Product.itemId!=null)
+            label2.Content+= Product.itemId.ToString();
+            if (Product.itemTitle!=null)
+                Title.Content += Product.itemTitle;
+            if (Product.priceInfo!=null)
+                label4.Content+= Product.priceInfo[0].priceValue.ToString();
+            if (Product.timeToEnd!=null)
+            label.Content+= Product.timeToEnd;
+            if (Product.categoryId!=null)
+                CategoryID_lab.Content += Product.categoryId.ToString();
             
             
-          
-            if (item.photosInfo[0].photoUrl!=null)
+         
+            if (Product.photosInfo[0].photoUrl!=null)
             {
-                var fullFilePath = item.photosInfo[0].photoUrl;
+                var fullFilePath = Product.photosInfo[0].photoUrl;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
@@ -44,7 +53,7 @@ namespace Porownywarka
                 image.Source = bitmap;
             }
 
-            if (item.parametersInfo!=null)
+            if (Product.parametersInfo!=null)
             {
                 parametry_lab = new Label[100];
                 int i = 0;
@@ -58,11 +67,36 @@ namespace Porownywarka
                     i++;
                     
                 }
+                
             }
 
-         
-     
+        
         }
+
+        private void DodatkoweDane()
+        {
+            long[] arrayItemsNotFound, arrayItemsAdminKilled;
+       //     arrayItemsNotFound = new long[100000];
+       //     arrayItemsAdminKilled = new long[100000];
+            long[] tablicaid = new long[1];
+            tablicaid[0] = Product.itemId;
+            var dane = service.doGetItemsInfo(sessionHandle, tablicaid, 1, true, 1, true, 1, true, 1, true, 1, true, 0, false, 1, true, out arrayItemsNotFound, out arrayItemsAdminKilled);
+   
+            File.WriteAllText("stronahtml.html", dane[0].itemInfo.itDescription);
+
+            ZaladujHTML();
+        }
+        private void ZaladujHTML()
+        {
+            var text = File.ReadAllText("stronahtml.html", Encoding.ASCII);
+            webbrowser.NavigateToString(text);
+        }
+
+        private void Dodatkowe_Click(object sender, RoutedEventArgs e)
+        {
+            DodatkoweDane();
+        }
+
         private void return_button_Click(object sender, RoutedEventArgs e)
         {
             Menu menu = new Menu();

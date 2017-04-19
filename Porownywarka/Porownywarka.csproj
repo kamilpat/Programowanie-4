@@ -70,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GraphicCardDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\Produkt.cs" />
     <Compile Include="View\Creditsxaml.xaml.cs">
       <DependentUpon>Creditsxaml.xaml</DependentUpon>
     </Compile>
@@ -791,9 +792,7 @@
       <CachedSettingsPropName>Porownywarka_pl_allegro_webapi_serviceService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Credits.png" />
   </ItemGroup>

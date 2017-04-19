@@ -25,6 +25,6 @@ namespace Porownywarka
     /// </summary>
     public partial class MainWindow : Window
     {
-   
+  
     }
 }

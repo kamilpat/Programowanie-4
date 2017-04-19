@@ -24,5 +24,7 @@ namespace Porownywarka
         {
             this.Close();
         }
+
+   
     }
 }

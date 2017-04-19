@@ -12,10 +12,10 @@ namespace Porownywarka
 {
     public partial class Login : Window
     {
-
+        
         string User;
         string Password;
-        const string webapiKey = "";
+        const string webapiKey = "abfacca7";
         long versionKey  = 1491826292;
         //s515d776
         serviceService service;
@@ -35,6 +35,7 @@ namespace Porownywarka
 
         public void Zaloguj()
         {
+       
             User = Username_TextBok.Text;
             Password = Password_PasswordBox.Password;
         //    Password= "515d776a98B21be1";
@@ -69,7 +70,7 @@ namespace Porownywarka
             try
             {
                 Zaloguj();
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(sessionHandle);
                this.Close();
                mainWindow.Show();
             }
