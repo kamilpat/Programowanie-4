@@ -16,7 +16,7 @@ namespace Porownywarka
         public ItemsListType SelectedItem;
         public string sessionHandle;
         ////    LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(Properties.Settings.Default.GraphicCardConnectionString);
-        const string webapiKey = "abfacca7";
+        const string webapiKey = "xxxxx";
         long versionKey = 1491826292;
         CatInfoType[] categories;
         //s515d776
