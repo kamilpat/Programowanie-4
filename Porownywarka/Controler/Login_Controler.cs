@@ -15,7 +15,7 @@ namespace Porownywarka
         
         string User;
         string Password;
-        const string webapiKey = "abfacca7";
+        const string webapiKey = "xxxxxx";
         long versionKey  = 1491826292;
         //s515d776
         serviceService service;
