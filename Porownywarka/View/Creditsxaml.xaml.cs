@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Porownywarka.View
 {
-    /// <summary>
-    /// Interaction logic for Creditsxaml.xaml
-    /// </summary>
     public partial class Creditsxaml : Window
     {
         public Creditsxaml()

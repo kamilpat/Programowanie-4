@@ -1,4 +1,5 @@
 ﻿using Porownywarka.pl.allegro.webapi;
+using Porownywarka.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +18,17 @@ namespace Porownywarka
         string Password;
         const string webapiKey = "abfacca7";
         long versionKey  = 1491826292;
+        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\Janusz\Desktop\Programownie\Projekt\Porownywarka\Porownywarka\SearchedEngineDataBase.mdf;Integrated Security = True; Connect Timeout = 30");
+
         //s515d776
         serviceService service;
         string sessionHandle;   // uchwyt sesji jako zmienna globalna
-        LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(Properties.Settings.Default.GraphicCardConnectionString);
-        public Login()
+    public Login()
         {
             InitializeComponent();
             service = new serviceService();
-            //         if (dc.DatabaseExists())
-            //         {
-            //         dataGrid.ItemsSource = dc.Cards.Where(x => x.Category.Contains(textBox.Text));
-            //     dc.Users.Where(x => x.UserName == Username_TextBok.Text && x.Password == Password_TextxBox.Text).Take(1);
-            //         }
-        }
       
+        }
 
         public void Zaloguj()
         {
@@ -58,7 +55,7 @@ namespace Porownywarka
 
         private void return_button_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
+            var menu = new Menu();
             this.Close();
             menu.Show();
         }
@@ -69,10 +66,16 @@ namespace Porownywarka
        
             try
             {
-                Zaloguj();
-                MainWindow mainWindow = new MainWindow(sessionHandle);
-               this.Close();
-               mainWindow.Show();
+          //      Zaloguj();
+           
+                var FirstUser = dc.Customers.First(x => x.Username == Username_TextBok.Text.Trim());
+                if (FirstUser == null) return;
+                if (FirstUser.Username.Trim() != Username_TextBok.Text ||
+                    FirstUser.Password.Trim() != Password_PasswordBox.Password.Trim()) { label.Content = "Bad username or Password";  return; }
+           
+                var searched = new Searched(FirstUser.IDCustomer);
+                this.Close();
+                searched.Show();
             }
             catch (Exception error)
             {

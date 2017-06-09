@@ -52,5 +52,49 @@ namespace Porownywarka.Properties {
                 return ((string)(this["Porownywarka_pl_allegro_webapi_serviceService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KI-B313-02;Initial Catalog=SearchEngineDatabase;Integrated Security=T" +
+            "rue")]
+        public string SearchEngineDatabaseConnectionString {
+            get {
+                return ((string)(this["SearchEngineDatabaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PRIST-KOMPUTER;Initial Catalog=SearchedEngineDataBase;Integrated Secu" +
+            "rity=True;Pooling=False")]
+        public string SearchedEngineDataBaseConnectionString {
+            get {
+                return ((string)(this["SearchedEngineDataBaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SearchedEngin" +
+            "eDataBase.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string SearchedEngineDataBaseConnectionString1 {
+            get {
+                return ((string)(this["SearchedEngineDataBaseConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PRIST-KOMPUTER;Initial Catalog=SearchedEngineDataBase;Integrated Secu" +
+            "rity=True")]
+        public string SearchedEngineDataBaseConnectionString2 {
+            get {
+                return ((string)(this["SearchedEngineDataBaseConnectionString2"]));
+            }
+        }
     }
 }

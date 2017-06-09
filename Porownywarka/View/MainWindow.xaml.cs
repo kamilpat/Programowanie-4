@@ -19,12 +19,10 @@ using System.Windows.Shapes;
 //http://wrzasq.pl/blog/allegro-webapi-tutorial-vol-3.html
 namespace Porownywarka
 {
-  
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
-  
+      
+
     }
 }

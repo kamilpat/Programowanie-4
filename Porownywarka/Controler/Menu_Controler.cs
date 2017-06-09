@@ -19,13 +19,13 @@ namespace Porownywarka
 
         private void button_Login_Click(object sender, RoutedEventArgs e)
         {
-            Login LoginWindow = new Login();
+            var LoginWindow = new Login();
             this.Close();
             LoginWindow.Show();
         }
         private void button_Credits_Click(object sender, RoutedEventArgs e)
         {
-            Creditsxaml credits = new Creditsxaml();
+            var credits = new Creditsxaml();
             this.Close();
             credits.Show();
         }
