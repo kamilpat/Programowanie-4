@@ -21,7 +21,11 @@ namespace Porownywarka.View
     /// </summary>
     public partial class Searched : Window
     {
+<<<<<<< HEAD
     
+=======
+       
+>>>>>>> origin/master
     }
 }
   

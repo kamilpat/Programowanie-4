@@ -22,7 +22,15 @@ namespace Porownywarka
         public ItemsListType[] itemsList2;
         public ItemsListType SelectedItem;
         public string sessionHandle;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
         const string webapiKey = "abfacca7";
+=======
+        ////    LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(Properties.Settings.Default.GraphicCardConnectionString);
+        const string webapiKey = "xxxxx";
+>>>>>>> origin/master
         long versionKey = 1491826292;
         public int ToUpdate;
         CatInfoType[] categories;
