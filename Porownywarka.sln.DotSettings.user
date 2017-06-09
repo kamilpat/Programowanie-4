@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/RunConfigs/Config/=90BF5C4B8A8D3542A76F78DAF68A6E6E/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/RunConfigs/Config/=90BF5C4B8A8D3542A76F78DAF68A6E6E/Type/@EntryValue">project</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=90BF5C4B8A8D3542A76F78DAF68A6E6E/Name/@EntryValue">Porownywarka</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=90BF5C4B8A8D3542A76F78DAF68A6E6E/ProjectGuid/@EntryValue">68F4A19F15333944A43D9DF8056B88EB</s:String>
+	<s:String x:Key="/Default/RunConfigs/Config/=90BF5C4B8A8D3542A76F78DAF68A6E6E/DefaultAction/@EntryValue">run</s:String>
+	<s:String x:Key="/Default/RunConfigs/Active/@EntryValue">90BF5C4B8A8D3542A76F78DAF68A6E6E</s:String></wpf:ResourceDictionary>

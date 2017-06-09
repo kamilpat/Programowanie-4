@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Porownywarka"
         mc:Ignorable="d"
-        Title="Menu" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Search Engine" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Foreground="{x:Null}">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        <Button x:Name="button_Credits" Content="Credits" HorizontalAlignment="Left" Margin="110,139,0,0" VerticalAlignment="Top" Width="75" Click="button_Credits_Click"/>
-        <Button x:Name="button_Close" Content="Exit" HorizontalAlignment="Left" Margin="110,184,0,0" VerticalAlignment="Top" Width="75" Click="button_Close_Click"/>
-        <Button x:Name="button_Login" Content="Login" HorizontalAlignment="Left" Margin="110,94,0,0" VerticalAlignment="Top" Width="75" Click="button_Login_Click"/>
+        <Button x:Name="button_Credits" Content="Credits" HorizontalAlignment="Left" Margin="120,145,0,0" VerticalAlignment="Top" Width="140" Click="button_Credits_Click" FontFamily="Candara" FontSize="24" Height="40" BorderBrush="{x:Null}" Background="#FFDDDDDD"/>
+        <Button x:Name="button_Close" Content="Exit" HorizontalAlignment="Left" Margin="120,190,0,0" VerticalAlignment="Top" Width="140" Click="button_Close_Click" FontFamily="Candara" FontSize="24" Height="40" BorderBrush="{x:Null}" Background="#FFDDDDDD"/>
+        <Button x:Name="button_Login" Content="Login" HorizontalAlignment="Left" Margin="120,100,0,0" VerticalAlignment="Top" Width="140" Click="button_Login_Click" FontFamily="Candara" FontSize="24" Height="40" BorderBrush="{x:Null}" Background="#FFDDDDDD"/>
+        <Button x:Name="button_SignIn" Content="Sign In" HorizontalAlignment="Left" Margin="120,55,0,0" VerticalAlignment="Top" Width="140" Click="button_SignIn_Click" FontFamily="Candara" FontSize="24" Height="40" BorderBrush="{x:Null}" Background="#FFDDDDDD"/>
 
     </Grid>
 </Window>

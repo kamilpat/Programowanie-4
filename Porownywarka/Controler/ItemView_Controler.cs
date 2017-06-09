@@ -27,18 +27,18 @@ namespace Porownywarka
             Product = item;
             sessionHandle = sessionhandl;
             InitializeComponent();
-            if (Product.additionalInfo != null)             
-    label3.Content+= Product.additionalInfo.ToString();
-            if (Product.itemId!=null)
-            label2.Content+= Product.itemId.ToString();
-            if (Product.itemTitle!=null)
-                Title.Content += Product.itemTitle;
-            if (Product.priceInfo!=null)
-                label4.Content+= Product.priceInfo[0].priceValue.ToString();
-            if (Product.timeToEnd!=null)
-            label.Content+= Product.timeToEnd;
-            if (Product.categoryId!=null)
-                CategoryID_lab.Content += Product.categoryId.ToString();
+    //        if (Product.additionalInfo != null)             
+    //label3.Content+= Product.additionalInfo.ToString();
+    //        if (Product.itemId!=null)
+    //        label2.Content+= Product.itemId.ToString();
+    //        if (Product.itemTitle!=null)
+    //            Title.Content += Product.itemTitle;
+    //        if (Product.priceInfo!=null)
+    //            label4.Content+= Product.priceInfo[0].priceValue.ToString();
+    //        if (Product.timeToEnd!=null)
+    //        label.Content+= Product.timeToEnd;
+    //        if (Product.categoryId!=null)
+    //            CategoryID_lab.Content += Product.categoryId.ToString();
             
             
          
@@ -50,7 +50,7 @@ namespace Porownywarka
                 bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
                 bitmap.EndInit();
 
-                image.Source = bitmap;
+                //image.Source = bitmap;
             }
 
             if (Product.parametersInfo!=null)
@@ -69,16 +69,14 @@ namespace Porownywarka
                 }
                 
             }
-
+            DodatkoweDane();
         
         }
 
         private void DodatkoweDane()
         {
             long[] arrayItemsNotFound, arrayItemsAdminKilled;
-       //     arrayItemsNotFound = new long[100000];
-       //     arrayItemsAdminKilled = new long[100000];
-            long[] tablicaid = new long[1];
+            var tablicaid = new long[1];
             tablicaid[0] = Product.itemId;
             var dane = service.doGetItemsInfo(sessionHandle, tablicaid, 1, true, 1, true, 1, true, 1, true, 1, true, 0, false, 1, true, out arrayItemsNotFound, out arrayItemsAdminKilled);
    
@@ -88,7 +86,7 @@ namespace Porownywarka
         }
         private void ZaladujHTML()
         {
-            var text = File.ReadAllText("stronahtml.html", Encoding.ASCII);
+            var text = File.ReadAllText("stronahtml.html", Encoding.UTF8);
             webbrowser.NavigateToString(text);
         }
 
@@ -99,7 +97,7 @@ namespace Porownywarka
 
         private void return_button_Click(object sender, RoutedEventArgs e)
         {
-            Menu menu = new Menu();
+            var menu = new Menu();
             this.Close();
             menu.Show();
         }
