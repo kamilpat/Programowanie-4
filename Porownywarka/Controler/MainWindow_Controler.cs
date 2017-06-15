@@ -356,9 +356,14 @@ namespace Porownywarka
                 }
                 else
                 {
-                    var item = DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate);
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).Tittle = seachingParameter.Tittle;
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).Country= seachingParameter.Country;
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).Distance = seachingParameter.Distance;
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).MaxPrice = seachingParameter.MaxPrice;
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).MinPrice = seachingParameter.MinPrice;
+                    DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate).CategoryID = seachingParameter.CategoryID;
                     seachingParameter.CustomerID = User;
-                    item = seachingParameter;
+                    //item = seachingParameter;
                     DatabaseConnection.dc.SubmitChanges();
                 }
             }

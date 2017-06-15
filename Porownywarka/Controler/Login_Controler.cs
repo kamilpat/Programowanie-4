@@ -19,9 +19,6 @@ namespace Porownywarka
         string Password;
         const string webapiKey = "xxxxxx";
         long versionKey  = 1491826292;
-      
-
-        //s515d776
         serviceService service;
         string sessionHandle;   // uchwyt sesji jako zmienna globalna
     public Login()
@@ -30,29 +27,6 @@ namespace Porownywarka
             service = new serviceService();
       
         }
-
-        public void Zaloguj()
-        {
-       
-            User = Username_TextBok.Text;
-            Password = Password_PasswordBox.Password;
-        //    Password= "515d776a98B21be1";
-            service.doQuerySysStatus(4, 1, webapiKey, out versionKey);
-
-            long hashoffset = 0; long serverTime = 0;    //deklaracje zmiennych zwracanych przez funkcję doLogin
-           
-                sessionHandle =
-                    service.doLogin(
-                   User,   //       loginTxt.Text,      //login został wpisany w polu tekstowym
-                 Password,//   pswrdTxt.Text,      //hasło
-                    1,                  //parametr "countrycode", 1-Polska
-                    webapiKey,          //klucz webapi - zadeklarowany wcześniej jako stała
-                    versionKey,         //klucz wersji - jw.
-                    out hashoffset,   
-                    out serverTime);    // dodatkowe wartości zwracane przez funkcję.   
-        }
-
-
 
         private void return_button_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +42,6 @@ namespace Porownywarka
             try
             {
           //      Zaloguj();
-           
                 var FirstUser = DatabaseConnection.dc.Customers.First(x => x.Username == Username_TextBok.Text.Trim());
                 if (FirstUser == null) return;
                 if (FirstUser.Username.Trim() != Username_TextBok.Text ||
@@ -82,8 +55,23 @@ namespace Porownywarka
             {
                 Label_Warnings.Content =(error.Message);
                 return;
-       
             }
         }
+        //public void ZalogujDoAllegro()
+        //{
+        //    User = Username_TextBok.Text;
+        //    Password = Password_PasswordBox.Password;
+        //    service.doQuerySysStatus(4, 1, webapiKey, out versionKey);
+        //    long hashoffset = 0; long serverTime = 0;    //deklaracje zmiennych zwracanych przez funkcję doLogin
+        //    sessionHandle =
+        //        service.doLogin(
+        //            User,   //       loginTxt.Text,      //login został wpisany w polu tekstowym
+        //            Password,//   pswrdTxt.Text,      //hasło
+        //            1,                  //parametr "countrycode", 1-Polska
+        //            webapiKey,          //klucz webapi - zadeklarowany wcześniej jako stała
+        //            versionKey,         //klucz wersji - jw.
+        //            out hashoffset,
+        //            out serverTime);    // dodatkowe wartości zwracane przez funkcję.   
+        //}
     }
 }

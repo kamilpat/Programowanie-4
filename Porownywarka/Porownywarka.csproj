@@ -93,6 +93,7 @@
     <Compile Include="Controler\MainWindow_Controler.cs" />
     <Compile Include="Controler\Menu_Controler.cs" />
     <Compile Include="Controler\Searched_Controller.cs" />
+    <Compile Include="Controler\SignIn_Controller.cs" />
     <Compile Include="View\Creditsxaml.xaml.cs">
       <DependentUpon>Creditsxaml.xaml</DependentUpon>
     </Compile>

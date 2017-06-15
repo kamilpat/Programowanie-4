@@ -27,20 +27,6 @@ namespace Porownywarka
             Product = item;
             sessionHandle = sessionhandl;
             InitializeComponent();
-    //        if (Product.additionalInfo != null)             
-    //label3.Content+= Product.additionalInfo.ToString();
-    //        if (Product.itemId!=null)
-    //        label2.Content+= Product.itemId.ToString();
-    //        if (Product.itemTitle!=null)
-    //            Title.Content += Product.itemTitle;
-    //        if (Product.priceInfo!=null)
-    //            label4.Content+= Product.priceInfo[0].priceValue.ToString();
-    //        if (Product.timeToEnd!=null)
-    //        label.Content+= Product.timeToEnd;
-    //        if (Product.categoryId!=null)
-    //            CategoryID_lab.Content += Product.categoryId.ToString();
-            
-            
          
             if (Product.photosInfo[0].photoUrl!=null)
             {
@@ -49,14 +35,12 @@ namespace Porownywarka
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
                 bitmap.EndInit();
-
-                //image.Source = bitmap;
             }
 
             if (Product.parametersInfo!=null)
             {
                 parametry_lab = new Label[100];
-                int i = 0;
+                var i = 0;
 
                 foreach (var parameter in item.parametersInfo)
                 {
@@ -64,13 +48,10 @@ namespace Porownywarka
                     parametry_lab[i].Content = parameter.parameterName;
                     parametry_lab[i].Margin = new Thickness(20, 30 * i + 100, 0, 0);
 
-                    i++;
-                    
+                    i++;  
                 }
-                
             }
             DodatkoweDane();
-        
         }
 
         private void DodatkoweDane()
