@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using Porownywarka.Controler;
 
 namespace Porownywarka
 {
@@ -18,7 +19,7 @@ namespace Porownywarka
         string Password;
         const string webapiKey = "xxxxxx";
         long versionKey  = 1491826292;
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\Janusz\Desktop\Programownie\Projekt\Porownywarka\Porownywarka\SearchedEngineDataBase.mdf;Integrated Security = True; Connect Timeout = 30");
+        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
 
         //s515d776
         serviceService service;

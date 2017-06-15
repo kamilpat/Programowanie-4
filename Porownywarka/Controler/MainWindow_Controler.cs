@@ -9,28 +9,22 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Porownywarka.View;
 using Porownywarka;
+using Porownywarka.Controler;
 
 namespace Porownywarka
 {
     public partial class MainWindow : Window
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\Janusz\Desktop\Programownie\Projekt\Porownywarka\Porownywarka\SearchedEngineDataBase.mdf;Integrated Security = True; Connect Timeout = 30");
-
+        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
         private bool Update;
         public int User;
         public int activeParameter;
         public ItemsListType[] itemsList2;
         public ItemsListType SelectedItem;
         public string sessionHandle;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
+
         const string webapiKey = "abfacca7";
-=======
-        ////    LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(Properties.Settings.Default.GraphicCardConnectionString);
-        const string webapiKey = "xxxxx";
->>>>>>> origin/master
+
         long versionKey = 1491826292;
         public int ToUpdate;
         CatInfoType[] categories;

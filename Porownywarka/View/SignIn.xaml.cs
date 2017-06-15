@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Porownywarka.Controler;
 
 namespace Porownywarka
 {
@@ -24,8 +25,7 @@ namespace Porownywarka
 
     public partial class SignIn : Window
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\Janusz\Desktop\Programownie\Projekt\Porownywarka\Porownywarka\SearchedEngineDataBase.mdf;Integrated Security = True; Connect Timeout = 30");
-
+        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
         public SignIn()
         {
             InitializeComponent();

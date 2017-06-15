@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controler\DatabaseConnection.cs" />
     <Compile Include="Controler\ItemView_Controler.cs" />
     <Compile Include="Controler\Login_Controler.cs" />
     <Compile Include="Controler\MainWindow_Controler.cs" />

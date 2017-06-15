@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Porownywarka.Controler;
 
 namespace Porownywarka.View
 {
     public partial class Searched 
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\Janusz\Desktop\Programownie\Projekt\Porownywarka\Porownywarka\SearchedEngineDataBase.mdf;Integrated Security = True; Connect Timeout = 30");
-
+        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
         public int ActiveUser;
         public int IDSearching_Parameter = 0;
         public long IDDecission = 0;
@@ -26,10 +26,9 @@ namespace Porownywarka.View
         long versionKey = 1491826292;
 
         serviceService service;
-<<<<<<< HEAD
+
         private long IDObserved;
-=======
->>>>>>> origin/master
+
 
         public Searched(int user)
         {
@@ -290,10 +289,7 @@ namespace Porownywarka.View
             dc.ListOfProducts.Single(x => x.IDItem == IDDecission && x.IDCustomer == ActiveUser).Status = 1;
             dc.SubmitChanges();
           FillObserved();
-<<<<<<< HEAD
             FillDecision();
-=======
->>>>>>> origin/master
         }
         private void FillDecision() {
             var nazwa = dc.Products
@@ -333,11 +329,7 @@ namespace Porownywarka.View
                 }
                 dc.SubmitChanges();
                 FillDecision();
-<<<<<<< HEAD
                 Rejected_datagrid.ItemsSource = null;
-=======
-         
->>>>>>> origin/master
             }
             catch (Exception)
             {
@@ -416,15 +408,12 @@ namespace Porownywarka.View
 
         private void DeleteObserved_btn_OnClick_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
             dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser&&x.IDItem==IDObserved).Status = 0;
             dc.SubmitChanges();
             FillDecision();
             FillObserved();
-=======
             dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser).Status = 0;
             dc.SubmitChanges();
->>>>>>> origin/master
         }
 
         private void Searched_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -438,7 +427,6 @@ namespace Porownywarka.View
 
         private void Decision_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-<<<<<<< HEAD
             try
             {
                 var index = (Product)Decision_datagrid.SelectedItem;
@@ -454,7 +442,7 @@ namespace Porownywarka.View
         {
             try
             {
-                var index = (Product)Observed_dataGrid.SelectedItem;
+                var index = (Product) Observed_dataGrid.SelectedItem;
                 IDObserved = index.IDItem;
             }
             catch (Exception)
@@ -462,11 +450,5 @@ namespace Porownywarka.View
 
             }
         }
-
-=======
-            var index = (Product)Decision_datagrid.SelectedItem;
-            IDDecission = index.IDItem;
-        }
->>>>>>> origin/master
     }
 }
