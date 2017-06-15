@@ -19,7 +19,7 @@ namespace Porownywarka
         string Password;
         const string webapiKey = "xxxxxx";
         long versionKey  = 1491826292;
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
+      
 
         //s515d776
         serviceService service;
@@ -69,7 +69,7 @@ namespace Porownywarka
             {
           //      Zaloguj();
            
-                var FirstUser = dc.Customers.First(x => x.Username == Username_TextBok.Text.Trim());
+                var FirstUser = DatabaseConnection.dc.Customers.First(x => x.Username == Username_TextBok.Text.Trim());
                 if (FirstUser == null) return;
                 if (FirstUser.Username.Trim() != Username_TextBok.Text ||
                     FirstUser.Password.Trim() != Password_PasswordBox.Password.Trim()) { label.Content = "Bad username or Password";  return; }

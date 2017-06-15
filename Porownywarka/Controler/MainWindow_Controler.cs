@@ -15,7 +15,7 @@ namespace Porownywarka
 {
     public partial class MainWindow : Window
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
+
         private bool Update;
         public int User;
         public int activeParameter;
@@ -52,7 +52,7 @@ namespace Porownywarka
             activeParameter = SearchinActiveParameter.Id;
             AddSearch.Content = "Update";
            
-            var searchingParameter = dc.SearchingParameters.First(x => x.Id == activeParameter);
+            var searchingParameter = DatabaseConnection.dc.SearchingParameters.First(x => x.Id == activeParameter);
             Country_TextBox.Text = searchingParameter.Country;
             Tittle_TextBox.Text = searchingParameter.Tittle;
             MaxPrice_TextBox.Text = searchingParameter.MaxPrice;
@@ -349,17 +349,17 @@ namespace Porownywarka
                 }
                 if (Update == false)
                 {
-                    seachingParameter.Id = dc.SearchingParameters.Max(x => x.Id) + 1;
+                    seachingParameter.Id = DatabaseConnection.dc.SearchingParameters.Max(x => x.Id) + 1;
                     seachingParameter.CustomerID = User;
-                    dc.SearchingParameters.InsertOnSubmit(seachingParameter);
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.SearchingParameters.InsertOnSubmit(seachingParameter);
+                    DatabaseConnection.dc.SubmitChanges();
                 }
                 else
                 {
-                    var item = dc.SearchingParameters.First(x => x.Id == ToUpdate);
+                    var item = DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate);
                     seachingParameter.CustomerID = User;
                     item = seachingParameter;
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.SubmitChanges();
                 }
             }
             else
@@ -397,18 +397,18 @@ namespace Porownywarka
                 }
                 if (Update == false)
                 {
-                    seachingParameter.Id = dc.SearchingParameters.Max(x => x.Id) + 1;
+                    seachingParameter.Id = DatabaseConnection.dc.SearchingParameters.Max(x => x.Id) + 1;
                     seachingParameter.CustomerID = User;
-                    dc.SearchingParameters.InsertOnSubmit(seachingParameter);
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.SearchingParameters.InsertOnSubmit(seachingParameter);
+                    DatabaseConnection.dc.SubmitChanges();
                 }
                 else
                 {
 
-                    var item = dc.SearchingParameters.First(x => x.Id == ToUpdate);
+                    var item = DatabaseConnection.dc.SearchingParameters.First(x => x.Id == ToUpdate);
                     seachingParameter.CustomerID = User;
                     item = seachingParameter;
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.SubmitChanges();
                 }
             }
             var searched=new Searched(User);

@@ -25,7 +25,6 @@ namespace Porownywarka
 
     public partial class SignIn : Window
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
         public SignIn()
         {
             InitializeComponent();
@@ -38,7 +37,7 @@ namespace Porownywarka
                 Error_label.Content = "Nazwa nie może być pusta";
                 return false;
             }
-            if (dc.Customers.Any(x => x.Username.Trim() == Username_TextBok.Text.Trim()))
+            if (DatabaseConnection.dc.Customers.Any(x => x.Username.Trim() == Username_TextBok.Text.Trim()))
             {
                 Error_label.Content = "Nazwa użytkownika jest zajęta";
                 return false;
@@ -53,15 +52,15 @@ namespace Porownywarka
             if (!CheckIsCorrect()) return;
             var user = new Customer
             {
-                IDCustomer = dc.Customers.Count() + 1,
+                IDCustomer = DatabaseConnection.dc.Customers.Count() + 1,
                 Username = Username_TextBok.Text.Trim(),
                 Password = Password_PasswordBox.Password.Trim()
             };
     
 
             user.IDListOfProducts = user.IDCustomer;
-            dc.Customers.InsertOnSubmit(user);
-            dc.SubmitChanges(); 
+            DatabaseConnection.dc.Customers.InsertOnSubmit(user);
+            DatabaseConnection.dc.SubmitChanges(); 
             var menu = new Menu();
             this.Close();
             menu.Show();

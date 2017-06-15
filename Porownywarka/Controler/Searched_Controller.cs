@@ -13,7 +13,6 @@ namespace Porownywarka.View
 {
     public partial class Searched 
     {
-        public static LINQToSQLClassDataContext dc = new LINQToSQLClassDataContext(DatabaseConnection.Connection);
         public int ActiveUser;
         public int IDSearching_Parameter = 0;
         public long IDDecission = 0;
@@ -41,7 +40,7 @@ namespace Porownywarka.View
 
         private void FillSeaching()
         {
-            Searched_datagrid.ItemsSource = dc.SearchingParameters.Where(x => x.CustomerID == ActiveUser).ToArray();
+            Searched_datagrid.ItemsSource = DatabaseConnection.dc.SearchingParameters.Where(x => x.CustomerID == ActiveUser).ToArray();
         }
 
         private void Add_Button_Click(object sender, RoutedEventArgs e)
@@ -61,8 +60,8 @@ namespace Porownywarka.View
         private void DeleteSearched_Button_Click(object sender, RoutedEventArgs e)
         {
             if (Searched_datagrid.SelectedItem == null) return;
-            dc.SearchingParameters.DeleteOnSubmit((SearchingParameter)Searched_datagrid.SelectedItem);
-            dc.SubmitChanges();
+            DatabaseConnection.dc.SearchingParameters.DeleteOnSubmit((SearchingParameter)Searched_datagrid.SelectedItem);
+            DatabaseConnection.dc.SubmitChanges();
             FillSeaching();
         }
 
@@ -169,13 +168,13 @@ namespace Porownywarka.View
             Products = new Product[itemsList.Length];
             var quantity = 1;
             var count = 1;
-            if (!dc.Products.Any())
+            if (!DatabaseConnection.dc.Products.Any())
             {
                 count = 1;
             }
             else
             {
-                count = dc.Products.Max(x => x.ID) + 1;
+                count = DatabaseConnection.dc.Products.Max(x => x.ID) + 1;
             }
             quantity = count;
             foreach (var item in itemsList)
@@ -202,17 +201,17 @@ namespace Porownywarka.View
             }
             var lista = new ListOfProduct[Products.Length];
             var IdOfList = 0;
-            if (!dc.ListOfProducts.Any())
+            if (!DatabaseConnection.dc.ListOfProducts.Any())
             {
                 IdOfList = 1;
             }
             else
             {
-                IdOfList = dc.ListOfProducts.Max(x => x.IDListOfProducts) + 1;
+                IdOfList = DatabaseConnection.dc.ListOfProducts.Max(x => x.IDListOfProducts) + 1;
             }
             //funktion
-            var nazwa = dc.Products
-                             .Join(dc.ListOfProducts,
+            var nazwa = DatabaseConnection.dc.Products
+                             .Join(DatabaseConnection.dc.ListOfProducts,
                                  post => (long)post.IDItem
                                  ,
                                  meta => (long)meta.IDItem,
@@ -234,15 +233,15 @@ namespace Porownywarka.View
             {
                 foreach (var Item in Products)
                 {
-                    dc.Products.InsertOnSubmit(Item);
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.Products.InsertOnSubmit(Item);
+                    DatabaseConnection.dc.SubmitChanges();
                     lista[licznik] = new ListOfProduct();
                     lista[licznik].IDCustomer = ActiveUser;
                     lista[licznik].IDListOfProducts = IdOfList;
                     lista[licznik].IDListOfProducts = IdOfList;
                     lista[licznik].IDItem = Item.IDItem;
-                    dc.ListOfProducts.InsertOnSubmit(lista[licznik]);
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.ListOfProducts.InsertOnSubmit(lista[licznik]);
+                    DatabaseConnection.dc.SubmitChanges();
                     IdOfList++;
                     licznik++;
                 }
@@ -251,19 +250,19 @@ namespace Porownywarka.View
             {
                 foreach (var Item in Products)
                 {
-                    if (!dc.Products.Any(x => x.IDItem == Item.IDItem))
+                    if (!DatabaseConnection.dc.Products.Any(x => x.IDItem == Item.IDItem))
                     {
-                        dc.Products.InsertOnSubmit(Item);
-                        dc.SubmitChanges();
+                        DatabaseConnection.dc.Products.InsertOnSubmit(Item);
+                        DatabaseConnection.dc.SubmitChanges();
                     }
-                    if (dc.ListOfProducts.Any(x => x.IDItem == Item.IDItem && x.IDCustomer == ActiveUser)) continue;
+                    if (DatabaseConnection.dc.ListOfProducts.Any(x => x.IDItem == Item.IDItem && x.IDCustomer == ActiveUser)) continue;
                     lista[licznik] = new ListOfProduct();
                     lista[licznik].IDCustomer = ActiveUser;
                     lista[licznik].IDListOfProducts = IdOfList;
                     lista[licznik].IDListOfProducts = IdOfList;
                     lista[licznik].IDItem = Item.IDItem;
-                    dc.ListOfProducts.InsertOnSubmit(lista[licznik]);
-                    dc.SubmitChanges();
+                    DatabaseConnection.dc.ListOfProducts.InsertOnSubmit(lista[licznik]);
+                    DatabaseConnection.dc.SubmitChanges();
                     IdOfList++;
                     licznik++;
                 }
@@ -273,7 +272,7 @@ namespace Porownywarka.View
         }
         public void DisplayObserved()
         {
-            var Tablica = dc.ListOfProducts.Where(x => x.IDCustomer == ActiveUser && x.Status == 1).ToArray();
+            var Tablica = DatabaseConnection.dc.ListOfProducts.Where(x => x.IDCustomer == ActiveUser && x.Status == 1).ToArray();
             ObservedItemsListProducts = new Product[Tablica.Length];
             for (int i = 0; i < Tablica.Length; i++)
             {
@@ -286,14 +285,14 @@ namespace Porownywarka.View
 
         private void AddToInterest_Click(object sender, RoutedEventArgs e)
         {
-            dc.ListOfProducts.Single(x => x.IDItem == IDDecission && x.IDCustomer == ActiveUser).Status = 1;
-            dc.SubmitChanges();
+            DatabaseConnection.dc.ListOfProducts.Single(x => x.IDItem == IDDecission && x.IDCustomer == ActiveUser).Status = 1;
+            DatabaseConnection.dc.SubmitChanges();
           FillObserved();
             FillDecision();
         }
         private void FillDecision() {
-            var nazwa = dc.Products
-                       .Join(dc.ListOfProducts,
+            var nazwa = DatabaseConnection.dc.Products
+                       .Join(DatabaseConnection.dc.ListOfProducts,
                            post => (long)post.IDItem
                            ,
                            meta => (long)meta.IDItem,
@@ -312,8 +311,8 @@ namespace Porownywarka.View
         }
         private void Delete_SearcButton_Click(object sender, RoutedEventArgs e)
         {
-            dc.ListOfProducts.Single(x => x.IDItem == IDDecission && x.IDCustomer == ActiveUser).Status = 2;
-            dc.SubmitChanges();
+            DatabaseConnection.dc.ListOfProducts.Single(x => x.IDItem == IDDecission && x.IDCustomer == ActiveUser).Status = 2;
+            DatabaseConnection.dc.SubmitChanges();
             FillRefused();
             FillDecision();
         }
@@ -322,12 +321,12 @@ namespace Porownywarka.View
         {
             try
             {
-            var rejectedReset=dc.ListOfProducts.Where(x => x.IDCustomer == ActiveUser&&x.Status==2) ;
+            var rejectedReset= DatabaseConnection.dc.ListOfProducts.Where(x => x.IDCustomer == ActiveUser&&x.Status==2) ;
                 foreach (var item in rejectedReset)
                 {
                     item.Status = 0;
                 }
-                dc.SubmitChanges();
+                DatabaseConnection.dc.SubmitChanges();
                 FillDecision();
                 Rejected_datagrid.ItemsSource = null;
             }
@@ -342,8 +341,8 @@ namespace Porownywarka.View
         {
             try
             {
-                var query = dc.Products
-                    .Join(dc.ListOfProducts,
+                var query = DatabaseConnection.dc.Products
+                    .Join(DatabaseConnection.dc.ListOfProducts,
                         post => (long)post.IDItem
                         ,
                         meta => (long)meta.IDItem,
@@ -372,8 +371,8 @@ namespace Porownywarka.View
             try
             {
 
-                var query = dc.Products // your starting point - table in the "from" statement
-                    .Join(dc.ListOfProducts, // the source table of the inner join
+                var query = DatabaseConnection.dc.Products // your starting point - table in the "from" statement
+                    .Join(DatabaseConnection.dc.ListOfProducts, // the source table of the inner join
                         post => (long)post
                             .IDItem, // Select the primary key (the first part of the "on" clause in an sql "join" statement)
                         meta => (long)meta.IDItem, // Select the foreign key (the second part of the "on" clause)
@@ -408,12 +407,12 @@ namespace Porownywarka.View
 
         private void DeleteObserved_btn_OnClick_Click(object sender, RoutedEventArgs e)
         {
-            dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser&&x.IDItem==IDObserved).Status = 0;
-            dc.SubmitChanges();
+            DatabaseConnection.dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser&&x.IDItem==IDObserved).Status = 0;
+            DatabaseConnection.dc.SubmitChanges();
             FillDecision();
             FillObserved();
-            dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser).Status = 0;
-            dc.SubmitChanges();
+            DatabaseConnection.dc.ListOfProducts.First(x => x.IDCustomer == ActiveUser).Status = 0;
+            DatabaseConnection.dc.SubmitChanges();
         }
 
         private void Searched_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
