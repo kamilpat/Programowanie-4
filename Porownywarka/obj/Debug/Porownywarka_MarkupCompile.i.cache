@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\
+C:\Users\Janusz\Documents\GitHub\Programowanie-4\Porownywarka\obj\Debug\
 Porownywarka
 none
 false
 DEBUG;TRACE
-E:\Programownie\Projekt\Porownywarka\Porownywarka\App.xaml
+C:\Users\Janusz\Documents\GitHub\Programowanie-4\Porownywarka\App.xaml
 8955196143
 21810880787
-26-76027229
-211624785740
+26-2085957559
+211564312426
 View\Creditsxaml.xaml;View\ItemView.xaml;View\SignIn.xaml;View\Login.xaml;View\MainWindow.xaml;View\Menu.xaml;View\Searched.xaml;View\UserWindows.xaml;
 
-False
+True
 

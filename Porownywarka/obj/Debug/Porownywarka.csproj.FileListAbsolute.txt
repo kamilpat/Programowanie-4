@@ -64,3 +64,6 @@ E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\View\UserWindows.bam
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.g.resources
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.Properties.Resources.resources
 E:\Programownie\Projekt\Porownywarka\Porownywarka\obj\Debug\Porownywarka.csproj.GenerateResource.Cache
+C:\Users\Janusz\Documents\GitHub\Programowanie-4\Porownywarka\bin\Debug\Porownywarka.exe.config
+C:\Users\Janusz\Documents\GitHub\Programowanie-4\Porownywarka\obj\Debug\Porownywarka.exe
+C:\Users\Janusz\Documents\GitHub\Programowanie-4\Porownywarka\obj\Debug\Porownywarka.pdb
